@@ -2,43 +2,41 @@ import 'package:arquitetura_flutter/app/models/user_model.dart';
 import 'package:arquitetura_flutter/app/presentation/home/components/list_tile_widget.dart';
 import 'package:arquitetura_flutter/app/presentation/home/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class ListUserWidget extends StatelessWidget {
-  const ListUserWidget({super.key});
+  ListUserWidget({super.key});
+  final userController = Modular.get<UserController>();
 
   @override
   Widget build(BuildContext context) {
-    final userController = Provider.of<UserController>(context, listen: false);
     userController.getUsers();
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Consumer<UserController>(
-        builder: (_, value, __) {
-          if (value.isLoading.value) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (value.error.value.isNotEmpty) {
-            return Center(
-              child: Text(value.error.value),
-            );
-          }
-          if (value.users.value.isEmpty) {
-            return const Center(
-              child: Text("Não existem contatos registrados!"),
-            );
-          }
-          return ListView.builder(
-            itemCount: value.users.value.length,
-            itemBuilder: (_, index) {
-              final UserModel model = value.users.value[index];
-              return ListTileWidget(model: model);
-            },
+    return ValueListenableBuilder(
+      valueListenable: userController.users,
+      builder: (_, value, __) {
+        if (userController.isLoading.value) {
+          return const Center(
+            child: CircularProgressIndicator(),
           );
-        },
-      ),
+        }
+        if (userController.error.value.isNotEmpty) {
+          return Center(
+            child: Text(userController.error.value),
+          );
+        }
+        if (userController.users.value.isEmpty) {
+          return const Center(
+            child: Text("Não existem contatos registrados!"),
+          );
+        }
+        return ListView.builder(
+          itemCount: userController.users.value.length,
+          itemBuilder: (_, index) {
+            final UserModel model = userController.users.value[index];
+            return ListTileWidget(model: model);
+          },
+        );
+      },
     );
   }
 }

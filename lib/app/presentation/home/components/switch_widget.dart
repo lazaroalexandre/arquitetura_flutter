@@ -1,29 +1,32 @@
 import 'package:arquitetura_flutter/app/presentation/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SwitchWidget extends StatelessWidget {
-  const SwitchWidget({super.key});
+  SwitchWidget({super.key});
+
+  final controller = Modular.get<HomeController>();
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<bool>(
-        valueListenable: HomeController.instance.themeSwitch,
+        valueListenable: controller.themeSwitch,
         builder: (context, value, snapshot) {
           return SizedBox(
             height: 28,
             child: FittedBox(
               fit: BoxFit.fill,
               child: Switch(
-                thumbIcon: HomeController.instance.isDark
+                thumbIcon: controller.isDark
                     ? const MaterialStatePropertyAll(Icon(
                         Icons.bedtime_rounded,
                       ))
                     : const MaterialStatePropertyAll(Icon(
                         Icons.auto_awesome_rounded,
                       )),
-                value: HomeController.instance.isDark,
+                value: controller.isDark,
                 onChanged: (value) {
-                  HomeController.instance.changeThemeViewmodel
+                  controller.changeThemeViewmodel
                       .changeValue(value);
                 },
               ),

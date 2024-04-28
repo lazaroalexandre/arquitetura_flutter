@@ -1,17 +1,21 @@
-import 'package:arquitetura_flutter/app/services/local/local_store_service_impl.dart';
-import 'package:arquitetura_flutter/app/viewmodels/change_theme_viewmodel.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 
-class HomeController {
-  static final HomeController instance = HomeController._();
-  HomeController._() {
-    changeThemeViewmodel.init();
-  }
+import 'package:arquitetura_flutter/app/viewmodels/change_theme_viewmodel.dart';
 
-  final ChangeThemeViewmodel changeThemeViewmodel =
-      ChangeThemeViewmodel(shared: LocalStoreServiceImpl());
+class HomeController extends ChangeNotifier {
+  final ChangeThemeViewmodel changeThemeViewmodel;
+  HomeController({
+    required this.changeThemeViewmodel,
+  });
 
   bool get isDark => changeThemeViewmodel.appConfigModel.themeSwitch.value;
+
   ValueNotifier<bool> get themeSwitch =>
       changeThemeViewmodel.appConfigModel.themeSwitch;
+
+  init() async {
+    await changeThemeViewmodel.init();
+    notifyListeners();
+  }
 }
