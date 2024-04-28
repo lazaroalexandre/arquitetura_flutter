@@ -1,6 +1,6 @@
-import 'package:arquitetura_flutter/app/models/user_model.dart';
-import 'package:arquitetura_flutter/app/presentation/home/components/list_tile_widget.dart';
-import 'package:arquitetura_flutter/app/presentation/home/controllers/user_controller.dart';
+import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
+import 'package:arquitetura_flutter/app/modules/home/components/list_tile_widget.dart';
+import 'package:arquitetura_flutter/app/modules/home/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

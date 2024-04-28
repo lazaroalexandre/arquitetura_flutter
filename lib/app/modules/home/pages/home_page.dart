@@ -1,5 +1,5 @@
-import 'package:arquitetura_flutter/app/presentation/home/components/app_bar_widget.dart';
-import 'package:arquitetura_flutter/app/presentation/home/components/list_user_widget.dart';
+import 'package:arquitetura_flutter/app/modules/home/components/app_bar_widget.dart';
+import 'package:arquitetura_flutter/app/modules/home/components/list_user_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

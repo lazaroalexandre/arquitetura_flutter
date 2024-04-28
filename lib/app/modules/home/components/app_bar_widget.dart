@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:arquitetura_flutter/app/presentation/home/components/switch_widget.dart';
+import 'package:arquitetura_flutter/app/modules/home/components/switch_widget.dart';
 
 class AppBarWidget extends AppBar {
   final String text;
