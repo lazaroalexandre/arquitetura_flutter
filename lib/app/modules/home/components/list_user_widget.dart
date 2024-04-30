@@ -4,13 +4,30 @@ import 'package:arquitetura_flutter/app/modules/home/controllers/user_controller
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class ListUserWidget extends StatelessWidget {
-  ListUserWidget({super.key});
+class ListUserWidget extends StatefulWidget {
+  const ListUserWidget({super.key});
+
+  @override
+  State<ListUserWidget> createState() => _ListUserWidgetState();
+}
+
+class _ListUserWidgetState extends State<ListUserWidget> {
   final userController = Modular.get<UserController>();
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     userController.getUsers();
+  }
+
+  @override
+  void dispose() {
+    userController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: userController.users,
       builder: (_, value, __) {

@@ -8,7 +8,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Modular.get<HomeController>();
-    return ValueListenableBuilder(
+    return ValueListenableBuilder<bool>(
         valueListenable: controller.themeSwitch,
         builder: (context, value, child) {
           controller.init();

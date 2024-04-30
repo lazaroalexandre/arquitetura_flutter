@@ -11,10 +11,10 @@ class HomeModule extends Module {
   
   @override
   void binds(i) {
-    i.addSingleton(UserController.new);
-    i.addSingleton(UserViewmodel.new);
-    i.addSingleton<UserRepository>(UserRepositoryImpl.new);
-    i.addSingleton<ClientService>(ClientServiceImpl.new);
+    i.addLazySingleton(UserController.new);
+    i.addLazySingleton(UserViewmodel.new);
+    i.addLazySingleton<UserRepository>(UserRepositoryImpl.new);
+    i.addLazySingleton<ClientService>(ClientServiceImpl.new);
   }
 
   @override
