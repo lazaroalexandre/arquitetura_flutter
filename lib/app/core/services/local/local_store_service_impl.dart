@@ -17,6 +17,6 @@ class LocalStoreServiceImpl implements LocalStoreService {
   @override
   Future put(String key, dynamic value) async {
     var shared = await SharedPreferences.getInstance();
-    shared.setBool(key, value);
+    await shared.setBool(key, value);
   }
 }

@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/modules/home/controllers/home_controller.dart';
+import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service.dart';
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service_impl.dart';
 import 'package:arquitetura_flutter/app/core/viewmodels/change_theme_viewmodel.dart';
