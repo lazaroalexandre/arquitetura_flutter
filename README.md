@@ -1,17 +1,26 @@
-# arquitetura_flutter
+# Arquitetura MVVM no Flutter
 
-A new Flutter project.
+Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-## Getting Started
+Nesta branch, são abordados conceitos arquiteturais de View e Controller ao construir um switch que, ao ser tocado, troca o tema da interface no Flutter. Esta parte do projeto é bastante simples, ainda não incluindo o salvamento do estado do tema trocado ao atualizar a página.
 
-This project is a starting point for a Flutter application.
+## View
 
-A few resources to get you started if this is your first Flutter project:
+As Views são componentes da arquitetura de software responsáveis pela apresentação dos dados. Elas constituem a interface com a qual os usuários interagem. No projeto, a View está representada pela HomePage, que chama o componente switch_widget.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Controller
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# arquitetura_flutter
+Os Controllers são intermediários entre a View e a lógica de negócios. Eles são responsáveis pela mudança imediata de estado ou ação no sistema. No projeto, foi introduzida uma variável booleana observável iniciada como false, que pode mudar seu valor ao acionar o componente de switch, que possui a função que altera o estado do tema criada no controller. 
+
+## Inicialização
+
+Primeiramente, instale todas as configurações do flutter em sua máquina, caso já não esteja instalada. Siga a documentação: https://docs.flutter.dev/get-started/install
+
+Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
+
+- flutter pub get
+- flutter run -d chrome
+
+## Referências
+
+*[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
