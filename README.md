@@ -2,7 +2,7 @@
 
 Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos de injeção de dependência com *GetIt* envolvida em uma organização de código modularizado, além da inserção de metodologias de design como o Atomic Design e internacionalização para suporte a diferentes idiomas no sistema.
+Nesta branch, são abordados conceitos de injeção de dependência com *Modular* envolvida em uma organização de código modularizado, além da inserção de metodologias de design como o Atomic Design e internacionalização para suporte a diferentes idiomas no sistema.
 
 ## Modular
 
